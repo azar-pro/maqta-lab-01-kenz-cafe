@@ -1,0 +1,76 @@
+/* Final QA: accessibility, keyboard focus and rendering polish */
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  transform: translateY(-160%);
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform .2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 4px;
+}
+
+.site-header :focus-visible,
+.menu-section :focus-visible,
+footer :focus-visible {
+  outline-color: var(--white);
+}
+
+.site-header.scrolled :focus-visible,
+.site-header.menu-open :focus-visible {
+  outline-color: var(--brown);
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #9a3f31;
+}
+
+.field-error:empty {
+  visibility: hidden;
+}
+
+.gallery-card,
+.value-card,
+.space-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
+@media (hover: hover) {
+  .main-nav a:not(.nav-cta),
+  .contact-row a,
+  .detail-row a {
+    transition: opacity .2s ease;
+  }
+
+  .main-nav a:not(.nav-cta):hover,
+  .contact-row a:hover,
+  .detail-row a:hover {
+    opacity: .62;
+  }
+}
