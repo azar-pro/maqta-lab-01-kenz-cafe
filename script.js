@@ -45,17 +45,40 @@ function renderMenu(category) {
     .join("");
 }
 
-if (tabs.length) {
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((item) => {
-        item.classList.remove("active");
-        item.setAttribute("aria-selected", "false");
-      });
+function activateTab(tab) {
+  if (!tab) return;
 
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-      renderMenu(tab.dataset.category);
+  tabs.forEach((item) => {
+    item.classList.remove("active");
+    item.setAttribute("aria-selected", "false");
+    item.setAttribute("tabindex", "-1");
+  });
+
+  tab.classList.add("active");
+  tab.setAttribute("aria-selected", "true");
+  tab.setAttribute("tabindex", "0");
+  renderMenu(tab.dataset.category);
+}
+
+if (tabs.length) {
+  tabs.forEach((tab, index) => {
+    tab.setAttribute("tabindex", tab.classList.contains("active") ? "0" : "-1");
+
+    tab.addEventListener("click", () => activateTab(tab));
+
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+
+      const nextTab = tabs[nextIndex];
+      activateTab(nextTab);
+      nextTab.focus();
     });
   });
 }
@@ -65,6 +88,7 @@ function closeMenu() {
   menuToggle.classList.remove("open");
   mainNav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation");
   document.body.style.overflow = "";
 }
 
@@ -73,11 +97,23 @@ if (menuToggle && mainNav) {
     const isOpen = mainNav.classList.toggle("open");
     menuToggle.classList.toggle("open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
     document.body.style.overflow = isOpen ? "hidden" : "";
   });
 
   mainNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mainNav.classList.contains("open")) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900 && mainNav.classList.contains("open")) closeMenu();
   });
 }
 
@@ -110,15 +146,17 @@ function setFieldError(fieldName, message) {
   if (target) target.textContent = message;
 }
 
+function getLocalToday() {
+  const today = new Date();
+  return new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+    .toISOString()
+    .split("T")[0];
+}
+
 if (bookingForm) {
   const dateInput = bookingForm.elements.date;
-  if (dateInput) {
-    const today = new Date();
-    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-      .toISOString()
-      .split("T")[0];
-    dateInput.min = localToday;
-  }
+  const localToday = getLocalToday();
+  if (dateInput) dateInput.min = localToday;
 
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -148,6 +186,9 @@ if (bookingForm) {
 
     if (!date) {
       setFieldError("date", "Choose a date.");
+      valid = false;
+    } else if (date < localToday) {
+      setFieldError("date", "Choose today or a future date.");
       valid = false;
     }
 
