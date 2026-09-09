@@ -3,15 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore the atmosphere, coffee and details of Kenz Café in Fès." />
-  <title>Gallery — Kenz Café</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Explore the atmosphere, coffee and material details of the Kenz Café concept in Fès." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#1d1b17" />
+  <link rel="canonical" href="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/gallery.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kenz Café" />
+  <meta property="og:title" content="Gallery — Kenz Café" />
+  <meta property="og:description" content="Explore the atmosphere, coffee and material details of the Kenz Café concept in Fès." />
+  <meta property="og:url" content="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/gallery.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&h=630&q=85" />
+  <meta property="og:image:alt" content="Kenz Café specialty coffee concept in Fès" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery — Kenz Café" />
+  <meta name="twitter:description" content="Explore the atmosphere, coffee and material details of the Kenz Café concept in Fès." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&h=630&q=85" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="//images.unsplash.com" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1800&q=82" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="pages.css" />
+  <title>Gallery — Kenz Café</title>
 </head>
 <body data-page="gallery">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <a class="brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
@@ -33,7 +55,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="inner-hero" style="--inner-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=2200&q=88')">
       <div class="inner-hero-content">
         <p class="eyebrow">The Space</p>
@@ -79,7 +101,7 @@
     </section>
   </main>
 
-<footer>
+  <footer>
     <a class="brand footer-brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
         <img class="brand-logo footer-logo" src="assets/kenz-logo-light.webp" alt="Kenz Café" width="420" height="140" />
@@ -89,6 +111,6 @@
     <p>© <span id="year"></span> Kenz Café</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
