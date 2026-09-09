@@ -1,3 +1,5 @@
+@import url("brand-logo.css");
+
 /* Robust full-screen mobile navigation */
 @media (max-width: 900px) {
   .site-header.menu-open {
