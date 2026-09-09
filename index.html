@@ -3,15 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kenz Café — a modern Moroccan specialty coffee house. Handmade coffee, warm interiors, and slow moments." />
-  <title>Kenz Café — Specialty Coffee House</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Kenz Café is a modern Moroccan specialty coffee concept in Fès, pairing carefully roasted coffee, fresh bakes and a warm contemporary atmosphere." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#1d1b17" />
+  <link rel="canonical" href="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kenz Café" />
+  <meta property="og:title" content="Kenz Café — Slow coffee. Warm moments." />
+  <meta property="og:description" content="Kenz Café is a modern Moroccan specialty coffee concept in Fès, pairing carefully roasted coffee, fresh bakes and a warm contemporary atmosphere." />
+  <meta property="og:url" content="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&h=630&q=85" />
+  <meta property="og:image:alt" content="Kenz Café specialty coffee concept in Fès" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kenz Café — Slow coffee. Warm moments." />
+  <meta name="twitter:description" content="Kenz Café is a modern Moroccan specialty coffee concept in Fès, pairing carefully roasted coffee, fresh bakes and a warm contemporary atmosphere." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&h=630&q=85" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="//images.unsplash.com" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=82" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="home-polish.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kenz Café",
+    "url": "https://azar-pro.github.io/maqta-lab-01-kenz-cafe/",
+    "description": "A fictional contemporary Moroccan specialty coffee website concept created as a front-end portfolio project."
+  }
+  </script>
+  <title>Kenz Café — Specialty Coffee House in Fès</title>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <a class="brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
@@ -20,7 +52,6 @@
       </span>
       <span class="sr-only">Kenz Café</span>
     </a>
-
 
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation">
       <span></span><span></span>
@@ -35,7 +66,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="home">
       <div class="hero-media" role="img" aria-label="Fresh specialty coffee"></div>
       <div class="hero-overlay"></div>
@@ -150,14 +181,14 @@
         </div>
         <div class="contact-row">
           <span>Instagram</span>
-          <a href="#" aria-label="Kenz Café Instagram">@kenz.cafe</a>
+          <span>@kenz.cafe</span>
         </div>
         <a class="btn btn-dark" href="contact.html#booking">Book a Table</a>
       </div>
     </section>
   </main>
 
-<footer>
+  <footer>
     <a class="brand footer-brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
         <img class="brand-logo footer-logo" src="assets/kenz-logo-light.webp" alt="Kenz Café" width="420" height="140" />
@@ -167,6 +198,6 @@
     <p>© <span id="year"></span> Kenz Café</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
