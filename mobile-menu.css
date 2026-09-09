@@ -1,0 +1,31 @@
+/* Mobile navigation contrast fix */
+@media (max-width: 900px) {
+  .site-header.menu-open {
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 1px 0 var(--line);
+    backdrop-filter: none;
+  }
+
+  .main-nav.open {
+    z-index: 31;
+    background: rgba(242, 238, 229, 0.995);
+    color: var(--ink);
+  }
+
+  .main-nav.open a {
+    color: var(--ink);
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  .menu-toggle.open {
+    color: var(--ink);
+  }
+
+  .site-header.menu-open .brand {
+    position: relative;
+    z-index: 32;
+    color: var(--ink);
+  }
+}
