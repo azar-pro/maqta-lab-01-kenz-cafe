@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover Kenz Café, a contemporary Moroccan specialty coffee house in Fès." />
+  <title>Our Story — Kenz Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body data-page="about">
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html" aria-label="Kenz Café home">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KENZ CAFÉ</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="about.html" data-nav="about">Our Story</a>
+      <a href="menu.html" data-nav="menu">Menu</a>
+      <a href="gallery.html" data-nav="gallery">Gallery</a>
+      <a href="contact.html" data-nav="contact">Visit</a>
+      <a class="nav-cta" href="contact.html#booking">Book a Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="inner-hero" style="--inner-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=2200&q=88')">
+      <div class="inner-hero-content">
+        <p class="eyebrow">Our Story</p>
+        <h1>A little treasure<br>in Fès.</h1>
+        <p>Kenz is a fictional café concept created to explore how a warm Moroccan identity can live inside a restrained, contemporary digital experience.</p>
+      </div>
+    </section>
+
+    <section class="section page-intro">
+      <div class="section-kicker">01 · The idea</div>
+      <div>
+        <p class="lead">Coffee culture with a distinctly Moroccan sense of welcome.</p>
+        <div class="prose" style="margin-top:38px">
+          <p>Kenz means “treasure”. The idea began with a simple question: what would a specialty coffee house in Fès look like if it felt modern without becoming anonymous?</p>
+          <p>The answer is a mix of quiet materials, thoughtful typography, excellent coffee and small references to Moroccan craft. Nothing is loud. Every detail is meant to make the space feel calm, tactile and familiar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="full-bleed-photo" style="--photo:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2200&q=88')" aria-label="Warm coffee house interior"></section>
+
+    <section class="section">
+      <div class="section-kicker">02 · What matters</div>
+      <div class="values-grid" style="margin-top:42px">
+        <article class="value-card">
+          <span class="value-number">01</span>
+          <h3>Quality</h3>
+          <p>Seasonal beans, careful extraction and a focused menu rather than endless choice.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-number">02</span>
+          <h3>Warmth</h3>
+          <p>Hospitality comes before performance. The space should feel easy to return to.</p>
+        </article>
+        <article class="value-card">
+          <span class="value-number">03</span>
+          <h3>Craft</h3>
+          <p>Handmade ceramics, honest materials and subtle Moroccan references shape the experience.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section section">
+      <blockquote>“Modern does not have to mean disconnected from place.”</blockquote>
+      <span>— Kenz Café</span>
+    </section>
+
+    <section class="section page-cta">
+      <div class="section-kicker">Next</div>
+      <h2>See what we are pouring.</h2>
+      <a class="btn btn-dark" href="menu.html">View the Menu</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KENZ CAFÉ</span>
+    </a>
+    <p>Specialty coffee · Fès, Morocco</p>
+    <p>© <span id="year"></span> Kenz Café</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
