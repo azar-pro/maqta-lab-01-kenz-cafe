@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visit Kenz Café in Fès, Morocco. View opening hours, contact details and request a table." />
+  <title>Visit — Kenz Café</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body data-page="contact">
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html" aria-label="Kenz Café home">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KENZ CAFÉ</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="about.html" data-nav="about">Our Story</a>
+      <a href="menu.html" data-nav="menu">Menu</a>
+      <a href="gallery.html" data-nav="gallery">Gallery</a>
+      <a href="contact.html" data-nav="contact">Visit</a>
+      <a class="nav-cta" href="#booking">Book a Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="inner-hero" style="--inner-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=88')">
+      <div class="inner-hero-content">
+        <p class="eyebrow">Visit Kenz</p>
+        <h1>Come for coffee.<br>Stay awhile.</h1>
+        <p>Find the essentials for your visit and try the booking form below. For this learning project, the form validates in the browser but does not send data to a server yet.</p>
+      </div>
+    </section>
+
+    <section class="section contact-layout" id="booking">
+      <div class="contact-details">
+        <div class="section-kicker">01 · Details</div>
+        <h2>Plan your visit.</h2>
+        <p>Kenz Café is a fictional portfolio concept based in Fès. The contact information below is intentionally placeholder content for the project.</p>
+
+        <div class="detail-list">
+          <div class="detail-row"><span>Hours</span><strong>Daily · 08:00 — 22:30</strong></div>
+          <div class="detail-row"><span>Phone</span><a href="tel:+212600000000">+212 6 00 00 00 00</a></div>
+          <div class="detail-row"><span>Email</span><a href="mailto:hello@kenzcafe.ma">hello@kenzcafe.ma</a></div>
+          <div class="detail-row"><span>Instagram</span><a href="#">@kenz.cafe</a></div>
+          <div class="detail-row"><span>City</span><strong>Fès, Morocco</strong></div>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm" novalidate>
+        <h3>Request a table</h3>
+        <p>This is a front-end demonstration: JavaScript checks the fields and shows a success state without sending personal data anywhere.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            <p class="field-error" data-error-for="name"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+212..." required />
+            <p class="field-error" data-error-for="phone"></p>
+          </div>
+
+          <div class="field">
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required />
+            <p class="field-error" data-error-for="date"></p>
+          </div>
+
+          <div class="field">
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests" required>
+              <option value="">Choose</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+            </select>
+            <p class="field-error" data-error-for="guests"></p>
+          </div>
+
+          <div class="field full">
+            <label for="message">Note <span style="opacity:.5">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Anything we should know?"></textarea>
+            <p class="field-error" data-error-for="message"></p>
+          </div>
+        </div>
+
+        <button class="btn btn-dark" type="submit">Check the Form</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="section page-cta">
+      <div class="section-kicker">Before you come</div>
+      <h2>Take a look at what is on the menu.</h2>
+      <a class="btn btn-dark" href="menu.html">Explore the Menu</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html">
+      <span class="brand-mark">K</span>
+      <span class="brand-name">KENZ CAFÉ</span>
+    </a>
+    <p>Specialty coffee · Fès, Morocco</p>
+    <p>© <span id="year"></span> Kenz Café</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
