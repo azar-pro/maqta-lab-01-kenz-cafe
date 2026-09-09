@@ -51,40 +51,66 @@ a {
   align-items: center;
   justify-content: space-between;
   color: var(--white);
+  background: linear-gradient(180deg, rgba(10, 8, 7, .34) 0%, rgba(10, 8, 7, .12) 52%, rgba(10, 8, 7, 0) 100%);
   transition: background .35s ease, color .35s ease, min-height .35s ease, box-shadow .35s ease;
 }
 
-.site-header.scrolled {
+.site-header.scrolled,
+.site-header.menu-open {
   color: var(--ink);
-  background: rgba(242, 238, 229, .93);
+  background: rgba(242, 238, 229, .94);
   backdrop-filter: blur(14px);
   min-height: 68px;
   box-shadow: 0 1px 0 var(--line);
 }
 
+.site-header.scrolled .brand-logo--light,
+.site-header.menu-open .brand-logo--light {
+  display: none;
+}
+
+.site-header.scrolled .brand-logo--dark,
+.site-header.menu-open .brand-logo--dark {
+  display: block;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
   text-decoration: none;
+  flex: 0 0 auto;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
+.brand-lockup {
+  display: block;
+  width: clamp(150px, 13vw, 190px);
+  line-height: 0;
 }
 
-.brand-name {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .18em;
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-logo--light {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .18));
+}
+
+.brand-logo--dark {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .main-nav {
@@ -521,6 +547,14 @@ footer {
   letter-spacing: .05em;
 }
 
+.footer-brand .brand-lockup {
+  width: 176px;
+}
+
+.footer-logo {
+  opacity: .96;
+}
+
 footer p {
   margin: 0;
   opacity: .65;
@@ -693,5 +727,28 @@ footer p {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .brand-lockup {
+    width: 156px;
+  }
+
+  .site-header.menu-open {
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-lockup {
+    width: 144px;
+  }
+
+  .footer-brand .brand-lockup {
+    width: 160px;
   }
 }

@@ -1,8 +1,3 @@
-const mobileMenuStylesheet = document.createElement("link");
-mobileMenuStylesheet.rel = "stylesheet";
-mobileMenuStylesheet.href = "mobile-menu.css";
-document.head.appendChild(mobileMenuStylesheet);
-
 const menuData = {
   coffee: [
     { name: "Espresso", desc: "Sweet, balanced seasonal espresso.", price: "24 DH" },
@@ -50,40 +45,17 @@ function renderMenu(category) {
     .join("");
 }
 
-function activateTab(tab) {
-  if (!tab) return;
-
-  tabs.forEach((item) => {
-    item.classList.remove("active");
-    item.setAttribute("aria-selected", "false");
-    item.setAttribute("tabindex", "-1");
-  });
-
-  tab.classList.add("active");
-  tab.setAttribute("aria-selected", "true");
-  tab.setAttribute("tabindex", "0");
-  renderMenu(tab.dataset.category);
-}
-
 if (tabs.length) {
-  tabs.forEach((tab, index) => {
-    tab.setAttribute("tabindex", tab.classList.contains("active") ? "0" : "-1");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((item) => {
+        item.classList.remove("active");
+        item.setAttribute("aria-selected", "false");
+      });
 
-    tab.addEventListener("click", () => activateTab(tab));
-
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-      event.preventDefault();
-
-      let nextIndex = index;
-      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
-      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === "Home") nextIndex = 0;
-      if (event.key === "End") nextIndex = tabs.length - 1;
-
-      const nextTab = tabs[nextIndex];
-      activateTab(nextTab);
-      nextTab.focus();
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      renderMenu(tab.dataset.category);
     });
   });
 }
@@ -110,17 +82,6 @@ if (menuToggle && mainNav) {
 
   mainNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && mainNav.classList.contains("open")) {
-      closeMenu();
-      menuToggle.focus();
-    }
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 900 && mainNav.classList.contains("open")) closeMenu();
   });
 }
 
@@ -153,17 +114,15 @@ function setFieldError(fieldName, message) {
   if (target) target.textContent = message;
 }
 
-function getLocalToday() {
-  const today = new Date();
-  return new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-    .toISOString()
-    .split("T")[0];
-}
-
 if (bookingForm) {
   const dateInput = bookingForm.elements.date;
-  const localToday = getLocalToday();
-  if (dateInput) dateInput.min = localToday;
+  if (dateInput) {
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+      .toISOString()
+      .split("T")[0];
+    dateInput.min = localToday;
+  }
 
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -193,9 +152,6 @@ if (bookingForm) {
 
     if (!date) {
       setFieldError("date", "Choose a date.");
-      valid = false;
-    } else if (date < localToday) {
-      setFieldError("date", "Choose today or a future date.");
       valid = false;
     }
 
