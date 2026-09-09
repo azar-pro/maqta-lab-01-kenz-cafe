@@ -46,16 +46,37 @@ function renderMenu(category) {
 }
 
 if (tabs.length) {
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((item) => {
-        item.classList.remove("active");
-        item.setAttribute("aria-selected", "false");
-      });
+  const activateTab = (tab) => {
+    tabs.forEach((item) => {
+      item.classList.remove("active");
+      item.setAttribute("aria-selected", "false");
+      item.setAttribute("tabindex", "-1");
+    });
 
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-      renderMenu(tab.dataset.category);
+    tab.classList.add("active");
+    tab.setAttribute("aria-selected", "true");
+    tab.setAttribute("tabindex", "0");
+    renderMenu(tab.dataset.category);
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.setAttribute("tabindex", tab.classList.contains("active") ? "0" : "-1");
+
+    tab.addEventListener("click", () => activateTab(tab));
+
+    tab.addEventListener("keydown", (event) => {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(event.key)) return;
+      event.preventDefault();
+
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+
+      tabs[nextIndex].focus();
+      activateTab(tabs[nextIndex]);
     });
   });
 }
@@ -82,6 +103,17 @@ if (menuToggle && mainNav) {
 
   mainNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mainNav.classList.contains("open")) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900 && mainNav.classList.contains("open")) closeMenu();
   });
 }
 
@@ -111,7 +143,9 @@ const formStatus = document.getElementById("formStatus");
 
 function setFieldError(fieldName, message) {
   const target = document.querySelector(`[data-error-for="${fieldName}"]`);
+  const field = bookingForm?.elements?.[fieldName];
   if (target) target.textContent = message;
+  if (field && fieldName !== "message") field.setAttribute("aria-invalid", message ? "true" : "false");
 }
 
 if (bookingForm) {
@@ -153,6 +187,9 @@ if (bookingForm) {
     if (!date) {
       setFieldError("date", "Choose a date.");
       valid = false;
+    } else if (dateInput && date < dateInput.min) {
+      setFieldError("date", "Choose today or a future date.");
+      valid = false;
     }
 
     if (!guests) {
@@ -162,6 +199,8 @@ if (bookingForm) {
 
     if (!valid) {
       if (formStatus) formStatus.textContent = "Please check the highlighted fields.";
+      const firstInvalid = bookingForm.querySelector('[aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
       return;
     }
 
