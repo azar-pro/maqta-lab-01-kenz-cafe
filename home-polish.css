@@ -1,3 +1,5 @@
+@import url("qa.css");
+
 /* Homepage visual polish — editorial transition between feature image and menu */
 .feature-image { min-height: 62vh; margin: 0 7vw 96px; overflow: visible; background-position: center 48%; }
 .feature-badge { right: 30px; bottom: -38px; width: 158px; box-shadow: 0 18px 50px rgba(29, 27, 23, 0.12); }
