@@ -1,47 +1,34 @@
-# MAQTA Lab 01 — Kenz Café
+# Kenz Café — Front-end Portfolio Project
 
-## Goal
-Build a polished responsive website using only:
-- HTML
-- CSS
+A fictional contemporary Moroccan specialty coffee website created as **MAQTA Lab 01**.
+
+**Live demo:** https://azar-pro.github.io/maqta-lab-01-kenz-cafe/
+
+## Built with
+- Semantic HTML5
+- CSS Grid and Flexbox
 - Vanilla JavaScript
+- Responsive design
+- Accessible mobile navigation and keyboard interactions
+- Front-end form validation
+- Basic technical SEO and social metadata
 
-No framework and no page builder.
+## Pages
+- Home
+- Our Story
+- Menu
+- Gallery
+- Visit / booking-form demo
 
-## What this first version teaches
-1. Semantic HTML structure
-2. CSS layout with Grid and Flexbox
-3. Responsive breakpoints
-4. Mobile navigation
-5. JavaScript DOM manipulation
-6. Menu filtering
-7. Accessible buttons/labels
-8. Basic SEO metadata
-
-## Files
-- `index.html` → structure/content
-- `styles.css` → visual design/responsiveness
-- `script.js` → interaction
-- `README.md` → project notes
-
-## Run locally
-Simplest method: double-click `index.html`.
-
-Better method in VS Code:
-1. Install the Live Server extension.
-2. Open this folder.
-3. Right-click `index.html`.
-4. Choose **Open with Live Server**.
+## Technical highlights
+- Responsive full-screen mobile navigation
+- JavaScript-powered menu tabs with keyboard support
+- Client-side form validation with accessible error states
+- Canonical URLs, Open Graph and Twitter metadata
+- Sitemap and robots.txt
+- SVG favicon
+- Hero image preloading and external-origin preconnects
+- Reduced-motion support and visible keyboard focus states
 
 ## Important
-The café is fictional and created as a portfolio/learning project.
-The phone/email/social links are placeholders.
-The current photos are loaded from Unsplash and can be replaced with original MAQTA visuals later.
-
-## Next planned phase
-- Add dedicated About / Menu / Gallery / Contact pages
-- Replace placeholder identity/assets
-- Add form validation
-- Test responsive behavior carefully
-- Lighthouse/SEO pass
-- Publish as a separate portfolio project
+Kenz Café is a **fictional portfolio concept**. Contact details, prices and reservation functionality are demonstration content. The form validates locally and does not submit personal data to a backend.
