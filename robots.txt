@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azar-pro.github.io/maqta-lab-01-kenz-cafe/sitemap.xml
