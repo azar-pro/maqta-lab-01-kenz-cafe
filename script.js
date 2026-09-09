@@ -1,3 +1,8 @@
+const mobileMenuStylesheet = document.createElement("link");
+mobileMenuStylesheet.rel = "stylesheet";
+mobileMenuStylesheet.href = "mobile-menu.css";
+document.head.appendChild(mobileMenuStylesheet);
+
 const menuData = {
   coffee: [
     { name: "Espresso", desc: "Sweet, balanced seasonal espresso.", price: "24 DH" },
@@ -87,6 +92,7 @@ function closeMenu() {
   if (!menuToggle || !mainNav) return;
   menuToggle.classList.remove("open");
   mainNav.classList.remove("open");
+  if (siteHeader) siteHeader.classList.remove("menu-open");
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.setAttribute("aria-label", "Open navigation");
   document.body.style.overflow = "";
@@ -96,6 +102,7 @@ if (menuToggle && mainNav) {
   menuToggle.addEventListener("click", () => {
     const isOpen = mainNav.classList.toggle("open");
     menuToggle.classList.toggle("open", isOpen);
+    if (siteHeader) siteHeader.classList.toggle("menu-open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
     document.body.style.overflow = isOpen ? "hidden" : "";
