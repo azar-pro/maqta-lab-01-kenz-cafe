@@ -3,15 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Visit Kenz Café in Fès, Morocco. View opening hours, contact details and request a table." />
-  <title>Visit — Kenz Café</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Plan a visit to the fictional Kenz Café concept in Fès and try the front-end table request form." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#1d1b17" />
+  <link rel="canonical" href="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/contact.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kenz Café" />
+  <meta property="og:title" content="Visit — Kenz Café" />
+  <meta property="og:description" content="Plan a visit to the fictional Kenz Café concept in Fès and try the front-end table request form." />
+  <meta property="og:url" content="https://azar-pro.github.io/maqta-lab-01-kenz-cafe/contact.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&h=630&q=85" />
+  <meta property="og:image:alt" content="Kenz Café specialty coffee concept in Fès" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Visit — Kenz Café" />
+  <meta name="twitter:description" content="Plan a visit to the fictional Kenz Café concept in Fès and try the front-end table request form." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&h=630&q=85" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="//images.unsplash.com" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=82" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="pages.css" />
+  <title>Visit — Kenz Café</title>
 </head>
 <body data-page="contact">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <a class="brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
@@ -33,7 +55,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="inner-hero" style="--inner-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=88')">
       <div class="inner-hero-content">
         <p class="eyebrow">Visit Kenz</p>
@@ -52,7 +74,7 @@
           <div class="detail-row"><span>Hours</span><strong>Daily · 08:00 — 22:30</strong></div>
           <div class="detail-row"><span>Phone</span><a href="tel:+212600000000">+212 6 00 00 00 00</a></div>
           <div class="detail-row"><span>Email</span><a href="mailto:hello@kenzcafe.ma">hello@kenzcafe.ma</a></div>
-          <div class="detail-row"><span>Instagram</span><a href="#">@kenz.cafe</a></div>
+          <div class="detail-row"><span>Instagram</span><span>@kenz.cafe</span></div>
           <div class="detail-row"><span>City</span><strong>Fès, Morocco</strong></div>
         </div>
       </div>
@@ -64,25 +86,25 @@
         <div class="form-grid">
           <div class="field">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
-            <p class="field-error" data-error-for="name"></p>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" aria-describedby="nameError" required />
+            <p class="field-error" id="nameError" data-error-for="name" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+212..." required />
-            <p class="field-error" data-error-for="phone"></p>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+212..." aria-describedby="phoneError" required />
+            <p class="field-error" id="phoneError" data-error-for="phone" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="date">Date</label>
-            <input id="date" name="date" type="date" required />
-            <p class="field-error" data-error-for="date"></p>
+            <input id="date" name="date" type="date" aria-describedby="dateError" required />
+            <p class="field-error" id="dateError" data-error-for="date" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="guests">Guests</label>
-            <select id="guests" name="guests" required>
+            <select id="guests" name="guests" aria-describedby="guestsError" required>
               <option value="">Choose</option>
               <option value="1">1 guest</option>
               <option value="2">2 guests</option>
@@ -91,7 +113,7 @@
               <option value="5">5 guests</option>
               <option value="6">6 guests</option>
             </select>
-            <p class="field-error" data-error-for="guests"></p>
+            <p class="field-error" id="guestsError" data-error-for="guests" aria-live="polite"></p>
           </div>
 
           <div class="field full">
@@ -113,7 +135,7 @@
     </section>
   </main>
 
-<footer>
+  <footer>
     <a class="brand footer-brand" href="index.html" aria-label="Kenz Café home">
       <span class="brand-lockup">
         <img class="brand-logo footer-logo" src="assets/kenz-logo-light.webp" alt="Kenz Café" width="420" height="140" />
@@ -123,6 +145,6 @@
     <p>© <span id="year"></span> Kenz Café</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
