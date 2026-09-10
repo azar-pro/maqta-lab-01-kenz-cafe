@@ -129,6 +129,27 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const footerCopyright = document.querySelector("footer p:last-of-type");
+if (footerCopyright && !footerCopyright.querySelector(".maqta-credit")) {
+  footerCopyright.append(" · Created by ");
+
+  const maqtaCredit = document.createElement("a");
+  maqtaCredit.className = "maqta-credit";
+  maqtaCredit.href = "https://maqtastudio.com/";
+  maqtaCredit.target = "_blank";
+  maqtaCredit.rel = "noopener noreferrer";
+  maqtaCredit.textContent = "MAQTA STUDIO";
+  maqtaCredit.setAttribute("aria-label", "Visit MAQTA Studio website");
+  maqtaCredit.style.color = "inherit";
+  maqtaCredit.style.fontWeight = "600";
+  maqtaCredit.style.letterSpacing = ".08em";
+  maqtaCredit.style.textDecoration = "none";
+  maqtaCredit.style.borderBottom = "1px solid rgba(255,255,255,.45)";
+  maqtaCredit.style.paddingBottom = "2px";
+
+  footerCopyright.append(maqtaCredit);
+}
+
 const currentPage = document.body.dataset.page;
 if (currentPage) {
   const activeLink = document.querySelector(`[data-nav="${currentPage}"]`);
